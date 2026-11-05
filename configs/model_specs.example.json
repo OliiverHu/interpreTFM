@@ -1,0 +1,27 @@
+{
+  "scgpt": {
+    "store_root": "/path/to/activation_stores/scgpt",
+    "activation_pooling": "token",
+    "token_value": "60695",
+    "cell_feature_pooling": "mean",
+    "layers": [
+      "layer_0.norm2", "layer_1.norm2", "layer_2.norm2", "layer_3.norm2",
+      "layer_4.norm2", "layer_5.norm2", "layer_6.norm2", "layer_7.norm2",
+      "layer_8.norm2", "layer_9.norm2", "layer_10.norm2", "layer_11.norm2"
+    ]
+  },
+  "geneformer": {
+    "store_root": "/path/to/activation_stores/geneformer",
+    "activation_pooling": "token",
+    "token_value": "<cls>",
+    "cell_feature_pooling": "mean",
+    "layers": ["layer_1", "layer_4", "layer_7", "layer_10", "layer_12", "layer_14", "layer_16", "layer_17"]
+  },
+  "c2sscale": {
+    "store_root": "/path/to/activation_stores/c2sscale",
+    "activation_pooling": "mean",
+    "token_value": null,
+    "cell_feature_pooling": "mean",
+    "layers": ["layer_0", "layer_6", "layer_13", "layer_15", "layer_17", "layer_19", "layer_21", "layer_23", "layer_25"]
+  }
+}

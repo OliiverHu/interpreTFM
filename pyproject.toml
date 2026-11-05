@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "interpretfm"
+dynamic = ["version"]
+description = "Layer-resolved evaluation of transcriptomic foundation models with sparse autoencoders on single-cell and spatial data"
+readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
+authors = [
+  { name = "Yunfei Hu" },
+]
+requires-python = ">=3.8"
+keywords = [
+  "transcriptomic foundation models",
+  "sparse autoencoders",
+  "interpretability",
+  "single-cell",
+  "spatial transcriptomics",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+# Lower bounds only: the conda files in envs/ pin exact versions, and
+# `pip install -e .` inside them must not change what they provide.
+dependencies = [
+  "numpy>=1.21",
+  "pandas>=1.3",
+  "scipy>=1.7",
+  "scikit-learn>=1.0",
+  "statsmodels>=0.13",
+  "matplotlib>=3.5",
+  "seaborn>=0.12",
+  "tqdm",
+  "requests",
+  "torch>=1.13",
+  "anndata>=0.8",
+  "scanpy>=1.9",
+  "gprofiler-official>=1.0",
+]
+
+[project.optional-dependencies]
+# Model adapters and activation extraction. scGPT, Geneformer and C2S-Scale weights,
+# and the Geneformer package itself, are installed separately (see the docs).
+models = ["transformers>=4.30", "nnsight>=0.4", "datasets>=2.14"]
+# GO hierarchy utilities used by interp_pipeline.downstream.f1.go_reduce.
+annotation = ["goatools>=1.2"]
+docs = [
+  "sphinx>=7.2",
+  "myst-parser>=2.0",
+  "furo>=2024.1.29",
+  "sphinx-copybutton>=0.5",
+]
+dev = ["pytest>=7", "ruff>=0.5", "pre-commit>=3"]
+
+[project.urls]
+Repository = "https://github.com/OliiverHu/interpreTFM"
+Documentation = "https://interpretfm.readthedocs.io"
+Issues = "https://github.com/OliiverHu/interpreTFM/issues"
+Changelog = "https://github.com/OliiverHu/interpreTFM/blob/HEAD/CHANGELOG.md"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.dynamic]
+version = { attr = "interp_pipeline.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["interp_pipeline*"]
+
+[tool.setuptools.package-data]
+"interp_pipeline.vendor.c2s_local" = ["prompts/*.json", "LICENSE.cell2sentence"]
+"interp_pipeline.vendor.scgpt_local" = ["LICENSE.scGPT"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+# Conservative on purpose: the package is research code kept close to the version used for
+# the manuscript. Only errors that break execution are checked; formatting is not enforced.
+target-version = "py38"
+extend-exclude = ["docs/_build"]
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]

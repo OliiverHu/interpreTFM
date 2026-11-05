@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Documentation build
+docs/_build/
+docs/api/generated/
+
+# Data, model weights and analysis outputs (never commit these)
+data/
+checkpoints/
+runs/
+outputs/
+debug_acts/
+*.h5ad
+*.h5
+*.loom
+*.zarr/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.npy
+*.npz
+*.parquet
+*.obo
+*.log
+*.tmp
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,20 @@
+# Install once with `pre-commit install`; hooks then run on the files you commit.
+# The whitespace hooks skip the existing package and plotting code so that a run over all
+# files does not rewrite code kept close to the version used for the manuscript.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+        exclude: ^(src/interp_pipeline|plot|envs)/
+      - id: trailing-whitespace
+        exclude: ^(src/interp_pipeline|plot|envs)/
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+        args: ["--maxkb=2048"]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.3
+    hooks:
+      # Rule selection lives in pyproject.toml ([tool.ruff.lint]); no formatter hook on purpose.
+      - id: ruff-check

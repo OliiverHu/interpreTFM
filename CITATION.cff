@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  If you use interpreTFM, please cite it as below. A manuscript describing the
+  method is in preparation; this file will point to it once it is published.
+title: "interpreTFM: layer-resolved evaluation of transcriptomic foundation models"
+type: software
+authors:
+  - family-names: Hu
+    given-names: Yunfei
+version: 0.9.0
+license: GPL-3.0-or-later
+repository-code: "https://github.com/OliiverHu/interpreTFM"
+url: "https://interpretfm.readthedocs.io"
+abstract: >-
+  interpreTFM is a layer-resolved framework for evaluating what transcriptomic
+  foundation models (scGPT, Geneformer and C2S-Scale) encode, using sparse
+  autoencoders, on single-cell and targeted spatial transcriptomic data. It
+  provides the transcriptomic interpretability score, held-out concept alignment
+  against raw hidden dimensions and untrained sparse autoencoders, cell-level
+  feature tables, and building blocks for spatial niche and interface analysis.
+keywords:
+  - transcriptomic foundation models
+  - sparse autoencoders
+  - interpretability
+  - single-cell
+  - spatial transcriptomics

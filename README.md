@@ -126,7 +126,7 @@ docs/                   documentation sources (Read the Docs)
 
 ## Documentation
 
-Documentation is published at <https://interpretfm.readthedocs.io> (placeholder URL until the Read the Docs project is created). It covers installation, the measures, data formats, usage, evaluation best practices, the roadmap and the API reference. To build it locally:
+Documentation is published at <https://interpretfm.readthedocs.io>. It covers installation, the measures, data formats, usage, evaluation best practices, the roadmap and the API reference. To build it locally:
 
 ```bash
 python -m pip install -r docs/requirements.txt

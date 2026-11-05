@@ -6,4 +6,4 @@
 
 Replace every `/path/to/...` with your own location before running a stage.
 Stored layer identifiers are zero-based (`layer_1.norm2` is display Layer 2).
-See the [usage guide](https://interpretfm.readthedocs.io/en/latest/usage.html) (placeholder URL) for details.
+See the [usage guide](https://interpretfm.readthedocs.io/en/latest/usage.html) for details.
